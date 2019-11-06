@@ -1,0 +1,79 @@
+<h3 class="text-center">Sửa Hợp Đồng</h3>
+<form (ngSubmit)="editService()" class="mt-3 w-75 mx-auto" [formGroup]="formEditService">
+
+  <div class="form-group">
+    <div class="d-flex">
+      <p class="mr-3">Tên Dịch Vụ</p>
+      <p class="text-danger"
+        *ngIf="formEditService.get('serviceName').invalid && formEditService.get('serviceName').touched">---> Vui
+        lòng nhập tên Dịch Vụ</p>
+    </div>
+    <input class="form-control" type="text" formControlName="serviceName">
+  </div>
+
+  <div class="form-group">
+    <div class="d-flex">
+      <p class="mr-3">Diện Tích</p>
+      <p class="text-danger" *ngIf="formEditService.get('area').invalid && formEditService.get('area').touched">--->
+        Vui lòng nhập Diện Tích</p>
+    </div>
+    <input class="form-control" type="text" formControlName="area">
+  </div>
+
+  <div class="form-group">
+    <div class="d-flex">
+      <p class="mr-3">Số Tầng</p>
+      <p class="text-danger"
+        *ngIf="formEditService.get('numberOfFloors').invalid && formEditService.get('numberOfFloors').touched">--->
+        Vui
+        lòng nhập Số Tầng</p>
+    </div>
+    <input class="form-control" type="text" formControlName="numberOfFloors">
+  </div>
+
+  <div class="form-group">
+    <div class="d-flex">
+      <p class="mr-3">Số Người Tối Đa</p>
+      <p class="text-danger"
+        *ngIf="formEditService.get('maximumNumberOfPeople').invalid && formEditService.get('maximumNumberOfPeople').touched">
+        ---> Vui
+        lòng nhập Số Người Tối Đa</p>
+    </div>
+    <input class="form-control" type="text" formControlName="maximumNumberOfPeople">
+  </div>
+
+  <div class="form-group">
+    <div class="d-flex">
+      <p class="mr-3">Giá</p>
+      <p class="text-danger"
+        *ngIf="formEditService.get('rentalCosts').invalid && formEditService.get('rentalCosts').touched">---> Vui
+        lòng nhập Giá Dịch Vụ</p>
+    </div>
+    <input class="form-control" type="text" formControlName="rentalCosts">
+  </div>
+
+  <div class="form-group">
+    <div class="d-flex">
+      <p class="mr-3">Kiểu Thuê</p>
+      <p class="text-danger"
+        *ngIf="formEditService.get('rentalTypeCode').invalid && formEditService.get('rentalTypeCode').touched">--->
+        Vui
+        lòng nhập Kiểu Thuê</p>
+    </div>
+    <input class="form-control" type="text" formControlName="rentalTypeCode">
+  </div>
+
+  <div class="form-group">
+    <div class="d-flex">
+      <p class="mr-3">Trạng Thái</p>
+      <p class="text-danger" *ngIf="formEditService.get('status').invalid && formEditService.get('status').touched">
+        ---> Vui
+        lòng nhập Trạng Thái</p>
+    </div>
+    <input class="form-control" type="text" formControlName="status">
+  </div>
+
+  <div class="form-group d-flex justify-content-center">
+    <button [disabled]="formEditService.invalid" class="btn btn-success mt-3">Sửa</button>
+  </div>
+</form>

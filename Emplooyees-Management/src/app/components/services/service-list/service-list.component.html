@@ -1,0 +1,79 @@
+<div class="row d-flex justify-content-between">
+  <h2 class="text-center">Danh Sách Dịch Vụ</h2>
+  <div class="d-flex justify-content-end w-50">
+    <input class="form-control mr-3" type="text" style="width: 70%;" [(ngModel)]="searchKeyword"
+      placeholder="Tìm Kiếm Theo Tên Dịch Vụ">
+    <button class="btn btn-outline-success" (click)="searchService()">Search</button>
+  </div>
+</div>
+
+<button class="btn btn-success my-3" [routerLink]="['/services/add']">Thêm Mới</button>
+
+
+
+<table class="table table-striped border rounded" style="font-size: 12px;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên Dịch Vụ</th>
+      <th>Diện Tích</th>
+      <th>Số Tầng</th>
+      <th>Số Người Tối Đa</th>
+      <th>Giá</th>
+      <th>Mã Kiểu Thuê</th>
+      <th>Trạng Thái</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let service of services | paginate: {itemsPerPage:5, currentPage:p}">
+      <td>{{service.id}}</td>
+      <td>{{service.serviceName}}</td>
+      <td>{{service.area}} m2</td>
+      <td>{{service.numberOfFloors}}</td>
+      <td>{{service.maximumNumberOfPeople}} Người</td>
+      <td>{{service.rentalCosts}} Triệu</td>
+      <td>{{service.rentalTypeCode}}</td>
+      <td>{{service.status}}</td>
+      <th class="d-flex">
+        <button class="btn btn-sm btn-warning mr-2" [routerLink]="['/services/'+service.id+'/edit']">Sửa</button>
+        <div>
+          <!-- Button to Open the Modal -->
+          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal"
+            (click)="getIdForDelete(service.id)">
+            Xóa
+          </button>
+
+          <!-- The Modal -->
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Delete Confirm</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="font-size: 18px;">
+                  Bạn có chắc chắn muốn xóa không?
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    (click)="deleteService()">Delete</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

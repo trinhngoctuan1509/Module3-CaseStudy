@@ -1,0 +1,226 @@
+{
+  "employees": [
+    {
+      "fullName": "Trịnh Ngọc Tuấn",
+      "position": "Nhân Viên",
+      "level": "Cao Đẳng",
+      "part": "Kinh Doanh",
+      "dateOfBirth": "1994-09-14T17:00:00.000Z",
+      "identityNumber": "174010666",
+      "salary": "6",
+      "phone": "0901234567",
+      "email": "ngoctuan.qvhn@gmail.com",
+      "address": "Thanh Khê - Đà Nẵng",
+      "id": 7
+    },
+    {
+      "id": 8,
+      "fullName": "Lâm Thế Vũ 2",
+      "position": "Nhân Viên",
+      "level": "Đại Học",
+      "part": "Kinh Doanh",
+      "dateOfBirth": "1995-06-14T17:00:00.000Z",
+      "identityNumber": "174010333",
+      "salary": "7",
+      "phone": "0901234567",
+      "email": "lamthevu@gmail.com",
+      "address": "Liên Chiểu - Đà Nẵng"
+    },
+    {
+      "fullName": "Mai Văn Lâm",
+      "position": "Nhân Viên",
+      "level": "Cao Đẳng",
+      "part": "Kinh Doanh",
+      "dateOfBirth": "1994-07-12T17:00:00.000Z",
+      "identityNumber": "174010555",
+      "salary": "8",
+      "phone": "(84)+901234567",
+      "email": "maivanlam@gmail.com",
+      "address": "Liên Chiểu - Đà Nẵng",
+      "id": 9
+    },
+    {
+      "fullName": "Nguyễn Thị Thoa",
+      "position": "Nhân Viên",
+      "level": "Đại Học",
+      "part": "Hành Chính",
+      "dateOfBirth": "1992-02-11T17:00:00.000Z",
+      "identityNumber": "174010666",
+      "salary": "7",
+      "phone": "0901234567",
+      "email": "nguyenvanthoa@gmail.com",
+      "address": "Hải Châu - Đà Nẵng",
+      "id": 10
+    },
+    {
+      "fullName": "Trinh Ngọc Tuấn 2",
+      "position": "Bảo Vệ",
+      "level": "Đại Học",
+      "part": "Kinh Doanh",
+      "dateOfBirth": "1995-03-08T17:00:00.000Z",
+      "identityNumber": "174010666",
+      "salary": "8",
+      "phone": "0901234568",
+      "email": "ngoctuan.qhvn@gmail.com",
+      "address": "Thanh Khê - Đà Nẵng",
+      "id": 11
+    },
+    {
+      "fullName": "Trinh Ngoc Tuan 2",
+      "position": "Nhan Vien",
+      "level": "Cao Dang",
+      "part": "Kinh Doanh",
+      "dateOfBirth": "1994-09-14T17:00:00.000Z",
+      "identityNumber": "174010666",
+      "salary": "7",
+      "phone": "0901234567",
+      "email": "ngoctuan.qhvn@gmail.com",
+      "address": "Thanh Khe Da Nang",
+      "id": 12
+    }
+  ],
+  "customers": [
+    {
+      "customerType": "VIP",
+      "fullName": "Trịnh Ngọc Tuấn",
+      "dateOfBirth": "1994-07-13T17:00:00.000Z",
+      "identityNumber": "174010666",
+      "phone": "0901234567",
+      "email": "ngoctuan.qhvn@gmail.com",
+      "address": "Thanh Khê- Đà Nẵng",
+      "id": 5
+    },
+    {
+      "customerType": "VIP",
+      "fullName": "Lâm Thế Vũ",
+      "dateOfBirth": "1995-07-11T17:00:00.000Z",
+      "identityNumber": "174010333",
+      "phone": "0911234567",
+      "email": "lamthevu@gmail.com",
+      "address": "Liên Chiểu - Đà Nẵng",
+      "id": 6
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "employeeCode": "NV-0003",
+      "customerCode": "KH-0003",
+      "serviceCode": "DV-0003",
+      "startDate": "2019-11-10T17:00:00.000Z",
+      "endDate": "2019-11-12T17:00:00.000Z",
+      "downPayment": "5",
+      "totalMoney": 10
+    },
+    {
+      "employeeCode": "NV-0002",
+      "customerCode": "KH-0005",
+      "serviceCode": "DV-0008",
+      "startDate": "2019-11-04T17:00:00.000Z",
+      "endDate": "2019-11-07T17:00:00.000Z",
+      "downPayment": "8",
+      "totalMoney": 15,
+      "id": 2
+    },
+    {
+      "employeeCode": "NV-0003",
+      "customerCode": "KH-0005",
+      "serviceCode": "DV-0007",
+      "startDate": "2019-11-17T17:00:00.000Z",
+      "endDate": "2019-11-19T17:00:00.000Z",
+      "downPayment": "10",
+      "totalMoney": 15,
+      "id": 3
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "serviceName": "Villa 01",
+      "area": 100,
+      "numberOfFloors": 1,
+      "maximumNumberOfPeople": 3,
+      "rentalCosts": 3,
+      "rentalTypeCode": 1,
+      "status": "Còn Phòng"
+    },
+    {
+      "id": 2,
+      "serviceName": "Villa 02",
+      "area": 150,
+      "numberOfFloors": 3,
+      "maximumNumberOfPeople": 7,
+      "rentalCosts": 10,
+      "rentalTypeCode": 2,
+      "status": "Còn Phòng"
+    },
+    {
+      "id": 3,
+      "serviceName": "Room 100",
+      "area": "100",
+      "numberOfFloors": "3",
+      "maximumNumberOfPeople": "5",
+      "rentalCosts": "5",
+      "rentalTypeCode": "1",
+      "status": "Còn Phòng"
+    },
+    {
+      "serviceName": "House 01",
+      "area": "100",
+      "numberOfFloors": "3",
+      "maximumNumberOfPeople": "3",
+      "rentalCosts": "5",
+      "rentalTypeCode": "2",
+      "status": "Còn Phòng",
+      "id": 4
+    },
+    {
+      "serviceName": "House 02",
+      "area": "150",
+      "numberOfFloors": "4",
+      "maximumNumberOfPeople": "10",
+      "rentalCosts": "10",
+      "rentalTypeCode": "3",
+      "status": "Hết Phòng",
+      "id": 5
+    }
+  ],
+  "orderDetails": [
+    {
+      "orderCode": "001",
+      "extraServiceCode": "002",
+      "amount": "5",
+      "id": 1
+    },
+    {
+      "orderCode": "002",
+      "extraServiceCode": "003",
+      "amount": "5",
+      "id": 2
+    },
+    {
+      "orderCode": "002",
+      "extraServiceCode": "004",
+      "amount": "2",
+      "id": 3
+    },
+    {
+      "orderCode": "002",
+      "extraServiceCode": "003",
+      "amount": "4",
+      "id": 4
+    },
+    {
+      "orderCode": "002",
+      "extraServiceCode": "002",
+      "amount": "8",
+      "id": 5
+    },
+    {
+      "orderCode": "001",
+      "extraServiceCode": "006",
+      "amount": "7",
+      "id": 6
+    }
+  ]
+}

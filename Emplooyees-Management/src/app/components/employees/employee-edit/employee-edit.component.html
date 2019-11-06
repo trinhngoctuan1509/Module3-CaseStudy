@@ -1,0 +1,64 @@
+<h3 class="text-center">Sửa Nhân Viên</h3>
+<form class="mt-3 w-75 mx-auto" action="" [formGroup]="formEditEmployee">
+  <div class="form-group">
+    <p>Họ và Tên</p>
+    <input class="form-control" type="text" formControlName="fullName">
+  </div>
+
+  <div class="form-group">
+    <p>Vị Trí</p>
+    <input class="form-control" type="text" formControlName="position">
+  </div>
+
+
+  <div class="form-group">
+    <p>Trình Độ</p>
+    <input class="form-control" type="text" formControlName="level">
+  </div>
+
+
+  <div class="form-group">
+    <p>Bộ Phận</p>
+    <input class="form-control" type="text" formControlName="part">
+  </div>
+
+
+  <div class="form-group">
+    <p>Ngày Sinh</p>
+    <input class="form-control" type="text" formControlName="dateOfBirth">
+  </div>
+
+
+  <div class="form-group">
+    <p>Số CMND</p>
+    <input class="form-control" type="text" formControlName="identityNumber">
+  </div>
+
+
+  <div class="form-group">
+    <p>Lương</p>
+    <input class="form-control" type="text" formControlName="salary">
+  </div>
+
+
+  <div class="form-group">
+    <p>Số Điện Thoại</p>
+    <input class="form-control" type="number" formControlName="phone">
+  </div>
+
+
+  <div class="form-group">
+    <p>Email</p>
+    <input class="form-control" type="text" formControlName="email">
+  </div>
+
+  <div class="form-group">
+    <p>Địa Chỉ</p>
+    <input class="form-control" type="text" formControlName="address">
+  </div>
+
+
+  <div class="form-group d-flex justify-content-center">
+    <button class="btn btn-success mt-3" (click)="editEmployee()">Sửa Thông Tin</button>
+  </div>
+</form>

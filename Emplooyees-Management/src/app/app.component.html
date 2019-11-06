@@ -1,0 +1,57 @@
+<div class="container-fluid px-0" style="height: 100vh;">
+  <div class="row bg-info mx-0 px-0" style="height: 10%;">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary w-100">
+      <a class="navbar-brand" href="#">Furama Đà Nẵng</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+              <a class="dropdown-item" href="#">Action 1</a>
+              <a class="dropdown-item" href="#">Action 2</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="row mx-0 px-0" style="height: 90%;">
+    <div class="col-2 px-0 w-100 border border-primary rounded">
+      <div class="list-group">
+        <button type="button" class="list-group-item list-group-item-action active" [routerLink]="['/']">
+          Home
+        </button>
+        <button type="button" class="list-group-item list-group-item-action" [routerLink]="['/employees']">Quản Lý Nhân
+          Viên</button>
+        <button type="button" class="list-group-item list-group-item-action" [routerLink]="['/services']">Quản Lý Dịch
+          Vụ</button>
+        <button type="button" class="list-group-item list-group-item-action" [routerLink]="['/customers']">Quản Lý Khách
+          Hàng</button>
+        <button type="button" class="list-group-item list-group-item-action" [routerLink]="['/orders']">Quản Lý Hợp
+          Đồng</button>
+        <button type="button" class="list-group-item list-group-item-action" [routerLink]="['/orderDetails']">Quản Lý ĐH
+          Chi Tiết</button>
+      </div>
+    </div>
+
+    <div class="col-10 border p-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+<!-- app.component.html -->

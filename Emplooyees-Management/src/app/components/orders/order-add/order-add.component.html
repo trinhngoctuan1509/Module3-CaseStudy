@@ -1,0 +1,75 @@
+<h3 class="text-center">Thêm Mới Hợp Đồng</h3>
+<form class="mt-3 w-75 mx-auto" action="" [formGroup]="formAddNewOrder">
+  <div class="form-group">
+    <p>Mã Nhân Viên</p>
+    <input class="form-control" type="text" formControlName="employeeCode">
+    <p *ngIf="formAddNewOrder.get('employeeCode').errors?.pattern &&formAddNewOrder.get('employeeCode').touched"
+      class="text-danger">--> Mã Nhân Viên Không Hợp Lệ
+    </p>
+  </div>
+
+  <div class="form-group">
+    <p>Mã Khách Hàng</p>
+    <input class="form-control" type="text" formControlName="customerCode">
+    <p *ngIf="formAddNewOrder.get('customerCode').errors?.pattern &&formAddNewOrder.get('customerCode').touched"
+      class="text-danger">--> Mã Khách Hàng Không Hợp Lệ
+    </p>
+  </div>
+
+  <div class="form-group">
+    <p>Mã Dịch Vụ</p>
+    <input class="form-control" type="text" formControlName="serviceCode">
+    <p *ngIf="formAddNewOrder.get('serviceCode').errors?.pattern &&formAddNewOrder.get('serviceCode').touched"
+      class="text-danger">--> Mã Dịch Vụ Không Hợp Lệ
+    </p>
+  </div>
+
+  <div class="form-group d-flex">
+    <div class="mr-5">
+      <p>Ngày Bắt Đầu</p>
+      <mat-form-field class="example-full-width">
+        <input matInput [min]="minStartDate" [matDatepicker]="picker111" placeholder="Choose a date"
+          formControlName="startDate" placeholder="mm/dd/yy">
+        <mat-datepicker-toggle matSuffix [for]="picker111"></mat-datepicker-toggle>
+        <mat-datepicker #picker111></mat-datepicker>
+      </mat-form-field>
+      <p *ngIf="formAddNewOrder.get('startDate').errors?.required &&formAddNewOrder.get('startDate').touched"
+      class="text-danger">--> Vui lòng nhập ngày bắt đầu
+    </p>
+    </div>
+
+    <div>
+      <p>Ngày Kết Thúc</p>
+      <mat-form-field class="example-full-width">
+        <input matInput [min]="minEndDate" [matDatepicker]="picker" placeholder="Choose a date"
+          formControlName="endDate" placeholder="mm/dd/yy">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <p *ngIf="formAddNewOrder.get('endDate').errors?.required &&formAddNewOrder.get('endDate').touched"
+      class="text-danger">--> Vui lòng nhập ngày kết thúc
+    </p>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <p>Tiền Đặt Cọc</p>
+    <input class="form-control" type="text" formControlName="downPayment">
+    <p *ngIf="formAddNewOrder.get('downPayment').errors?.pattern &&formAddNewOrder.get('downPayment').touched"
+      class="text-danger">--> Tiền đặt cọc phải là số nguyên dương
+    </p>
+  </div>
+
+  <div class="form-group">
+    <p>Tổng Tiền</p>
+    <input class="form-control" type="number" formControlName="totalMoney">
+    <p *ngIf="formAddNewOrder.get('totalMoney').errors?.pattern &&formAddNewOrder.get('totalMoney').touched"
+      class="text-danger">--> Tổng tiền phải là số nguyên dương
+    </p>
+  </div>
+
+  <div class="form-group d-flex justify-content-center">
+    <button class="btn btn-success mt-3 mr-3" (click)="addNewOrder()" [disabled]="formAddNewOrder.invalid">Thêm Mới</button>
+  </div>
+</form>

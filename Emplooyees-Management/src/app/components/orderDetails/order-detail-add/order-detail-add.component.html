@@ -1,0 +1,28 @@
+<h3 class="text-center">Thêm Mới Hợp Đồng Chi Tiết</h3>
+<form (ngSubmit)="addNewOrderDetail()" class="mt-3 w-75 mx-auto" action="" [formGroup]="formAddNewOrderDetail">
+
+  <div class="form-group">
+    <p>Mã Hợp Đồng</p>
+    <input class="form-control" type="text" formControlName="orderCode">
+    <p *ngIf="formAddNewOrderDetail.get('orderCode').errors?.pattern && formAddNewOrderDetail.get('orderCode').touched"
+      class="text-danger">--> Mã hợp đồng phải là số có 3 chữ số</p>
+  </div>
+
+  <div class="form-group">
+    <p>Mã Dịch Vụ Đi Kèm</p>
+    <input class="form-control" type="text" formControlName="extraServiceCode">
+    <p *ngIf="formAddNewOrderDetail.get('extraServiceCode').errors?.pattern && formAddNewOrderDetail.get('extraServiceCode').touched"
+      class="text-danger">--> Mã dịch vụ đi kèm phải là số có 3 chữ số</p>
+  </div>
+
+  <div class="form-group">
+    <p>Số Lượng</p>
+    <input class="form-control" type="text" formControlName="amount">
+    <p *ngIf="formAddNewOrderDetail.get('amount').errors?.pattern && formAddNewOrderDetail.get('amount').touched"
+      class="text-danger">--> Số lượng phải là số nguyên dương</p>
+  </div>
+
+  <div class="form-group d-flex justify-content-center">
+    <button class="btn btn-success mt-3">Thêm Mới</button>
+  </div>
+</form>

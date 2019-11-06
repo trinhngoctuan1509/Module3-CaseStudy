@@ -1,0 +1,72 @@
+<div class="row d-flex justify-content-between">
+  <h2 class="text-center">Danh Sách Hợp Đồng Chi Tiết</h2>
+  <div class="d-flex justify-content-end w-50">
+    <input class="form-control mr-3" type="text" style="width: 70%;" [(ngModel)]="searchKeyword"
+      placeholder="Tìm Kiếm Theo Mã Hợp Đồng">
+    <button class="btn btn-outline-success" (click)="searchOrderDetail()">Search</button>
+  </div>
+</div>
+
+<button class="btn btn-success my-3" [routerLink]="['/orderDetails/add']">Thêm Mới</button>
+
+
+
+<table class="table table-striped border rounded" style="font-size: 12px;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Mã Hợp Đồng</th>
+      <th>Mã Dịch Vụ Đi Kèm</th>
+      <th>Số Lượng</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let orderDetail of orderDetails | paginate: {itemsPerPage:5, currentPage:p}">
+      <td>{{orderDetail.id}}</td>
+      <td>{{orderDetail.orderCode}}</td>
+      <td>{{orderDetail.extraServiceCode}}</td>
+      <td>{{orderDetail.amount}}</td>
+      <th class="d-flex">
+        <button class="btn btn-sm btn-warning mr-2"
+          [routerLink]="['/orderDetails/' + orderDetail.id + '/edit']">Sửa</button>
+        <div>
+          <!-- Button to Open the Modal -->
+          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal"
+            (click)="getIdForDelete(orderDetail.id)">
+            Xóa
+          </button>
+
+          <!-- The Modal -->
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Delete Confirm</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="font-size: 18px;">
+                  Bạn có chắc chắn muốn xóa không?
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    (click)="deleteOrderDetail()">Delete</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

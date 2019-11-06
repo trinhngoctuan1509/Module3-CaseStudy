@@ -1,0 +1,85 @@
+<div class="row d-flex justify-content-between">
+  <h2 class="text-center">Danh Sách Hợp Đồng</h2>
+  <div class="d-flex justify-content-end w-50">
+    <input class="form-control mr-3" type="text" style="width: 70%;" [(ngModel)]="searchKeyword"
+      placeholder="Tìm Kiếm Theo Mã Khách Hàng">
+    <button class="btn btn-outline-success" (click)="searchOrder()">Search</button>
+  </div>
+</div>
+
+<button class="btn btn-success my-3" [routerLink]="['/orders/add']">Thêm Mới</button>
+
+
+
+<table class="table table-striped border rounded" style="font-size: 12px;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Mã Nhân Viên</th>
+      <th>Mã Khách Hàng</th>
+      <th>Mã Dịch Vụ</th>
+      <th>Ngày Bắt Đầu</th>
+      <th>Ngày Kết Thúc</th>
+      <th>Tiền Đặt Cọc</th>
+      <th>Tổng Tiền</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders | paginate: {itemsPerPage:5, currentPage:p}">
+      <td>{{order.id}}</td>
+      <td>{{order.employeeCode}}</td>
+      <td>{{order.customerCode}}</td>
+      <td>{{order.serviceCode}}</td>
+      <td>{{order.startDate | date: 'dd/MM/yyyy'}}</td>
+      <td>{{order.endDate | date: 'dd/MM/yyyy'}}</td>
+      <td>{{order.downPayment}} Triệu</td>
+      <td>{{order.totalMoney}} Triệu</td>
+      <th class="d-flex">
+        <button class="btn btn-sm btn-warning mr-2" [routerLink]="['/orders/'+ order.id +'/edit']">Sửa</button>
+        <div>
+          <!-- Button to Open the Modal -->
+          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal"
+            (click)="getIdForDelete(order.id)">
+            Xóa
+          </button>
+
+          <!-- The Modal -->
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Delete Confirm</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="font-size: 18px;">
+                  Bạn có chắc chắn muốn xóa không?
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    (click)="deleteOrder()">Delete</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<div class="row d-flex justify-content-end py-3 px-3">
+  <button type="button" class="btn btn-primary mr-5">
+    Tổng Tiền: <span class="badge badge-light ml-3">{{totalMoneyOfAllService}} Triệu</span>
+  </button>
+</div>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

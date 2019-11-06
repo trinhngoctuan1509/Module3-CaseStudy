@@ -1,0 +1,83 @@
+<div class="row d-flex justify-content-between">
+  <h2 class="text-center">Danh Sách Nhân Viên</h2>
+  <div class="d-flex justify-content-end w-50">
+    <input class="form-control mr-3" type="text" style="width: 70%;" [(ngModel)]="searchKeyword"
+      placeholder="Tìm Kiếm Theo Tên Nhân Viên">
+    <button class="btn btn-outline-success" (click)="searchEmployee()">Search</button>
+  </div>
+</div>
+
+<button class="btn btn-success my-3" [routerLink]="['/employees/add']">Thêm Mới</button>
+
+<table class="table table-striped border rounded" style="font-size: 12px;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Họ và Tên</th>
+      <th>Vị Trí</th>
+      <th>Trình Độ</th>
+      <th>Bộ Phận</th>
+      <th>Ngày Sinh</th>
+      <th>Số CMND</th>
+      <th>Lương</th>
+      <th>SĐT</th>
+      <th>Email</th>
+      <th>Địa Chỉ</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees | paginate: {itemsPerPage:5, currentPage:p}">
+      <td>{{employee.id}}</td>
+      <td>{{employee.fullName}}</td>
+      <td>{{employee.position}}</td>
+      <td>{{employee.level}}</td>
+      <td>{{employee.part}}</td>
+      <td>{{employee.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
+      <td>{{employee.identityNumber}}</td>
+      <td>{{employee.salary}} Triệu</td>
+      <td>{{employee.phone}}</td>
+      <td>{{employee.email}}</td>
+      <td>{{employee.address}}</td>
+      <th class="d-flex">
+        <button class="btn btn-sm btn-warning mr-2" [routerLink]="['/employees/'+employee.id+'/edit']">Sửa</button>
+        <div>
+          <!-- Button to Open the Modal -->
+          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal"
+            (click)="getIdForDelete(employee.id)">
+            Xóa
+          </button>
+
+          <!-- The Modal -->
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Delete Confirm</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body" style="font-size: 18px">
+                  Bạn có chắc chắn muốn xóa <span class="text-danger">{{employeeNameForDelete}}</span> không?
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    (click)="deleteEmployee()">Delete</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </tbody>
+</table>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

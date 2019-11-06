@@ -1,0 +1,41 @@
+<h3 class="text-center">Sửa Hợp Đồng</h3>
+<form class="mt-3 w-75 mx-auto" action="" [formGroup]="formEditOrder">
+  <div class="form-group">
+    <p>Mã Nhân Viên</p>
+    <input class="form-control" type="text" formControlName="employeeCode">
+  </div>
+
+  <div class="form-group">
+    <p>Mã Khách Hàng</p>
+    <input class="form-control" type="text" formControlName="customerCode">
+  </div>
+
+  <div class="form-group">
+    <p>Mã Dịch Vụ</p>
+    <input class="form-control" type="text" formControlName="serviceCode">
+  </div>
+
+  <div class="form-group">
+    <p>Ngày Bắt Đầu</p>
+    <input class="form-control" type="text" formControlName="startDate">
+  </div>
+
+  <div class="form-group">
+    <p>Ngày Kết Thúc</p>
+    <input class="form-control" type="text" formControlName="endDate">
+  </div>
+
+  <div class="form-group">
+    <p>Tiền Đặt Cọc</p>
+    <input class="form-control" type="text" formControlName="downPayment">
+  </div>
+
+  <div class="form-group">
+    <p>Tổng Tiền</p>
+    <input class="form-control" type="text" formControlName="totalMoney">
+  </div>
+
+  <div class="form-group d-flex justify-content-center">
+    <button class="btn btn-success mt-3" (click)="editOrder()">Chỉnh Sửa</button>
+  </div>
+</form>
